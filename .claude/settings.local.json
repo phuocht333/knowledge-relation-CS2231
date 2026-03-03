@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(/opt/homebrew/bin/python3.13:*)",
+      "Bash(/Users/phuochuynh/Documents/1.LearningMaster/KnowledgeRelation/graphRAG/.venv/bin/pip install:*)",
+      "Bash(/Users/phuochuynh/Documents/1.LearningMaster/KnowledgeRelation/graphRAG/.venv/bin/python:*)",
+      "Bash(.venv/bin/python -u -c:*)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(.venv/bin/pip list:*)",
+      "Bash(curl:*)",
+      "Bash(# Gradio 5 uses different API structure - let''s check config curl -s http://localhost:7860/config | python3 -c \"\" import json, sys data = json.load\\(sys.stdin\\) # Find components for comp in data.get\\(''components'', []\\): ctype = comp.get\\(''type'', ''''\\) if ctype in \\(''dropdown'', ''slider'', ''button'', ''html'', ''markdown''\\): print\\(f\\\\\"\" id={comp[''id'']} type={ctype} label={comp.get\\(''props'',{}\\).get\\(''label'',''''\\)}\\\\\"\"\\) # Find API endpoints for dep in data.get\\(''dependencies'', []\\): print\\(f\\\\\"\" api: fn_index={dep.get\\(''id''\\)} targets={dep.get\\(''targets''\\)}\\\\\"\"\\) \"\" 2>&1)"
+    ]
+  }
+}
