@@ -1,4 +1,3 @@
-
 # Graph RAG — Hỏi đáp Luật Đất đai 2013 & 2024
 
 > Knowledge Graph + Vector Search + LLM → Tra cứu & so sánh luật thông minh
@@ -39,8 +38,29 @@ PDF → Parse 302 điều luật → Trích xuất thực thể (NotebookLM/Gemi
 
 - **4,379 nodes** — điều luật, chương, thực thể pháp lý
 - **11,793 edges** — quan hệ nội luật + liên kết chéo 2013 ↔ 2024
-- 5 loại thực thể: khái niệm, điều luật, quyền/nghĩa vụ, mức hưởng, xử phạt
-- 8 loại quan hệ: định nghĩa, quy định, áp dụng, tham chiếu, bao gồm, điều kiện, hạn chế, liên quan
+
+### 5 loại thực thể (Entity Types)
+
+| Loại | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `khái_niệm` | Thuật ngữ, định nghĩa pháp lý | "chế độ sở hữu đất đai", "thống nhất quản lý về đất đai" |
+| `điều_luật` | Điều khoản cụ thể trong luật | "Điều 1 - Phạm vi điều chỉnh" |
+| `quyền_nghĩa_vụ` | Quyền lợi & trách nhiệm | "quyền và nghĩa vụ của công dân, người sử dụng đất" |
+| `mức_hưởng` | Ưu đãi, bồi thường | "miễn, giảm tiền sử dụng đất", "bồi thường, hỗ trợ, tái định cư" |
+| `xử_phạt` | Chế tài, xử lý vi phạm | "xử lý vi phạm pháp luật về đất đai", "Nhà nước thu hồi đất" |
+
+### 8 loại quan hệ (Relation Types)
+
+| Loại | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `quy_định` | A quy định nội dung B | LĐĐ 2024 —quy_định→ chế độ sở hữu đất đai |
+| `định_nghĩa` | A định nghĩa khái niệm B | Điều 3 —định_nghĩa→ "bản đồ địa chính" |
+| `áp_dụng` | A áp dụng cho đối tượng B | LĐĐ 2024 —áp_dụng→ đất đai thuộc lãnh thổ VN |
+| `điều_kiện` | A là điều kiện để B | sử dụng đất ổn định —điều_kiện→ được công nhận người sử dụng đất |
+| `tham_chiếu` | A tham chiếu đến B | Điều 36 —tham_chiếu→ Điều 78 (thu hồi đất) |
+| `bao_gồm` | A bao gồm B | Chương I —bao_gồm→ Điều 1, 2, ... |
+| `hạn_chế` | A hạn chế quyền B | — |
+| `liên_quan` | A liên quan đến B | quyền hạn NN —liên_quan→ đại diện chủ sở hữu toàn dân |
 
 ---
 
