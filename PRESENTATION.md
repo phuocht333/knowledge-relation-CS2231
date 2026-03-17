@@ -49,7 +49,7 @@ PDF → Parse 302 điều luật → Trích xuất thực thể (NotebookLM/Gemi
 | `mức_hưởng` | Ưu đãi, bồi thường | "miễn, giảm tiền sử dụng đất", "bồi thường, hỗ trợ, tái định cư" |
 | `xử_phạt` | Chế tài, xử lý vi phạm | "xử lý vi phạm pháp luật về đất đai", "Nhà nước thu hồi đất" |
 
-### 8 loại quan hệ (Relation Types)
+### 8 loại quan hệ nội luật (Relation Types)
 
 | Loại | Ý nghĩa | Ví dụ |
 |---|---|---|
@@ -61,6 +61,25 @@ PDF → Parse 302 điều luật → Trích xuất thực thể (NotebookLM/Gemi
 | `bao_gồm` | A bao gồm B | Chương I —bao_gồm→ Điều 1, 2, ... |
 | `hạn_chế` | A hạn chế quyền B | — |
 | `liên_quan` | A liên quan đến B | quyền hạn NN —liên_quan→ đại diện chủ sở hữu toàn dân |
+
+### Liên kết chéo giữa LĐĐ 2013 ↔ 2024 (151 cross-version edges)
+
+Đây là điểm **khác biệt cốt lõi** so với RAG truyền thống — graph kết nối trực tiếp các điều luật tương ứng giữa 2 phiên bản.
+
+| Loại quan hệ | Số lượng | Ý nghĩa |
+|---|---|---|
+| `cùng_số_điều` | 85 | Điều cùng số giữa 2 phiên bản |
+| `phiên_bản_cũ` | 33 | Điều 2024 → trỏ về điều tương ứng trong 2013 |
+| `phiên_bản_mới` | 33 | Điều 2013 → trỏ đến điều tương ứng trong 2024 |
+
+**Ví dụ:**
+```
+Điều 1 (LĐĐ 2024) ──phiên_bản_cũ──→ Điều 1 (LĐĐ 2013)    [phạm vi điều chỉnh]
+Điều 4 (LĐĐ 2024) ──phiên_bản_cũ──→ Điều 5 (LĐĐ 2013)    [người sử dụng đất — khác số điều]
+Điều 9 (LĐĐ 2024) ──phiên_bản_cũ──→ Điều 10 (LĐĐ 2013)   [phân loại đất — khác số điều]
+```
+
+> Khi hỏi so sánh, hệ thống traverse từ điều 2024 → sang điều tương ứng 2013 (và ngược lại) để lấy ngữ cảnh cả 2 bên.
 
 ---
 
